@@ -1,80 +1,38 @@
-/* Importar Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+/* ====== General ====== */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
-  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+  padding: 0;
+  background: #f4f4f9;
   color: #333;
-  line-height: 1.6;
-  padding-top: 100px; /* espacio para el header fijo */
 }
 
+/* ====== Header ====== */
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #ffffffcc; /* semi-transparente */
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  z-index: 1000;
-  padding: 10px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #27ae60, #2c3e50);
+  color: white;
+  padding: 40px 20px;
 }
 
 header h1 {
   margin: 0;
-  text-align: center;
-  color: #e74c3c; /* rojo llamativo */
-  font-weight: 700;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  font-size: 2.5rem;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
+header p {
   margin: 10px 0 0;
-  padding: 0;
+  font-size: 1.2rem;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: #27ae60;
-  font-weight: 600;
-  transition: color 0.3s;
-}
-
-nav ul li a:hover {
-  color: #e67e22;
-}
-
-/* Contenedor principal */
-main {
+/* ====== Grid de Recetas ====== */
+.recetas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   padding: 20px;
-  max-width: 1200px;
-  margin: auto;
 }
 
-/* Animación de aparición */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Tarjetas de receta */
 .receta {
   background: white;
   border-radius: 15px;
@@ -83,64 +41,58 @@ main {
   transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
   border: 2px solid transparent;
 
-  /* animación al cargar */
+  /* Animación al cargar */
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
 }
 
 .receta:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
   border: 2px solid #27ae60;
 }
 
 .receta img {
   width: 100%;
   border-radius: 12px;
-  display: block;
-  margin: 10px auto 20px auto;
 }
 
-/* Retraso progresivo para animación */
-.receta:nth-child(1) { animation-delay: 0.2s; }
-.receta:nth-child(2) { animation-delay: 0.4s; }
-.receta:nth-child(3) { animation-delay: 0.6s; }
-.receta:nth-child(4) { animation-delay: 0.8s; }
-.receta:nth-child(5) { animation-delay: 1s; }
-
-/* Estilos de títulos */
-h2 {
-  color: #27ae60;
-  font-weight: 700;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #27ae60;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
-h3 {
+.receta h2 {
+  margin: 15px 0 10px;
   color: #2c3e50;
-  font-size: 1.2rem;
-  margin-top: 15px;
-  font-weight: 600;
 }
 
-/* Ajustes responsive */
-@media (max-width: 600px) {
+.receta p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
   header h1 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
-  h2 {
-    font-size: 1.3rem;
-  }
-
-  h3 {
+  header p {
     font-size: 1rem;
   }
+
+  .receta {
+    padding: 15px;
+  }
 }
 
-/* Botón volver arriba */
+@media (max-width: 480px) {
+  .recetas {
+    grid-template-columns: 1fr;
+  }
+
+  .receta h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ====== Botón volver arriba ====== */
 #btnTop {
   position: fixed;
   bottom: 20px;
@@ -154,7 +106,7 @@ h3 {
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-  display: none; /* oculto por defecto */
+  display: none;
   transition: background 0.3s, transform 0.3s;
   z-index: 1100;
 }
@@ -163,6 +115,45 @@ h3 {
   background: #219150;
   transform: scale(1.1);
 }
+
+/* ====== Animaciones ====== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.receta:nth-child(1) { animation-delay: 0.2s; }
+.receta:nth-child(2) { animation-delay: 0.4s; }
+.receta:nth-child(3) { animation-delay: 0.6s; }
+.receta:nth-child(4) { animation-delay: 0.8s; }
+.receta:nth-child(5) { animation-delay: 1s; }
+
+/* ====== Footer ====== */
+footer {
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #27ae60;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: 600;
+}
+
+footer a:hover {
+  color: #e67e22;
+}
+
 
 
 
