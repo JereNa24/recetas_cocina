@@ -5,6 +5,7 @@ body {
   padding: 0;
   background: #f4f4f9;
   color: #333;
+  transition: background 0.3s, color 0.3s;
 }
 
 /* ====== Header ====== */
@@ -13,6 +14,7 @@ header {
   background: linear-gradient(135deg, #27ae60, #2c3e50);
   color: white;
   padding: 40px 20px;
+  position: relative;
 }
 
 header h1 {
@@ -23,6 +25,58 @@ header h1 {
 header p {
   margin: 10px 0 0;
   font-size: 1.2rem;
+}
+
+/* ====== Switch Modo Oscuro ====== */
+.switch-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 25px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #27ae60;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
 }
 
 /* ====== Buscador ====== */
@@ -60,7 +114,7 @@ header p {
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s, background 0.3s, color 0.3s;
   border: 2px solid transparent;
 
   /* Animación al cargar */
@@ -175,6 +229,30 @@ footer a {
 footer a:hover {
   color: #e67e22;
 }
+
+/* ====== DARK MODE ====== */
+body.dark-mode {
+  background: #1c1c1c;
+  color: #eee;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #111, #333);
+}
+
+body.dark-mode .receta {
+  background: #2a2a2a;
+  color: #eee;
+}
+
+body.dark-mode .receta h2 {
+  color: #f1c40f;
+}
+
+body.dark-mode footer {
+  background: #111;
+}
+
 
 
 

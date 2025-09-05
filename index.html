@@ -10,6 +10,15 @@
   <header>
     <h1>🍳 Recetas de Cocina</h1>
     <p>Encuentra aquí las mejores recetas fáciles y rápidas</p>
+
+    <!-- Switch Modo Oscuro -->
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox" id="toggle-dark">
+        <span class="slider"></span>
+      </label>
+      <span id="modo-texto">🌞 Claro</span>
+    </div>
   </header>
 
   <!-- Barra de búsqueda -->
@@ -87,16 +96,28 @@
       let filtro = searchInput.value.toLowerCase();
       recetas.forEach(receta => {
         let titulo = receta.querySelector("h2").textContent.toLowerCase();
-        if (titulo.includes(filtro)) {
-          receta.style.display = "block";
-        } else {
-          receta.style.display = "none";
-        }
+        receta.style.display = titulo.includes(filtro) ? "block" : "none";
       });
+    });
+
+    // Modo Oscuro
+    const toggleDark = document.getElementById("toggle-dark");
+    const body = document.body;
+    const modoTexto = document.getElementById("modo-texto");
+
+    toggleDark.addEventListener("change", function() {
+      body.classList.toggle("dark-mode");
+
+      if (body.classList.contains("dark-mode")) {
+        modoTexto.textContent = "🌙 Oscuro";
+      } else {
+        modoTexto.textContent = "🌞 Claro";
+      }
     });
   </script>
 </body>
 </html>
+
 
 
 
