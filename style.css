@@ -1,15 +1,52 @@
 body {
   font-family: 'Poppins', sans-serif;
-  margin: 20px;
+  margin: 0;
   background: #f9f9f9;
   color: #333;
   line-height: 1.6;
+  padding-top: 100px; /* espacio para el header fijo */
 }
 
-h1 {
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+header h1 {
+  margin: 0;
   text-align: center;
   color: #d35400;
   font-weight: 600;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #27ae60;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #d35400;
 }
 
 .receta {
