@@ -35,6 +35,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
   margin: 10px 0 0;
   padding: 0;
@@ -51,14 +52,22 @@ nav ul li a:hover {
   color: #e67e22;
 }
 
+/* Contenedor principal */
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
 /* Tarjetas de receta */
 .receta {
   background: white;
   border-radius: 15px;
   padding: 20px;
-  margin: 20px auto;
   box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-  max-width: 700px;
   transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
   border: 2px solid transparent;
 }
@@ -71,7 +80,6 @@ nav ul li a:hover {
 
 .receta img {
   width: 100%;
-  max-width: 600px;
   border-radius: 12px;
   display: block;
   margin: 10px auto 20px auto;
@@ -93,4 +101,20 @@ h3 {
   margin-top: 15px;
   font-weight: 600;
 }
+
+/* Ajustes responsive */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+}
+
 
