@@ -1,13 +1,15 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 20px;
   background: #f9f9f9;
   color: #333;
+  line-height: 1.6;
 }
 
 h1 {
   text-align: center;
   color: #d35400;
+  font-weight: 600;
 }
 
 .receta {
@@ -29,4 +31,10 @@ h1 {
 
 h2 {
   color: #27ae60;
+  font-weight: 600;
+}
+
+h3 {
+  color: #555;
+  margin-top: 15px;
 }
