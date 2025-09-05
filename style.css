@@ -73,14 +73,26 @@ h3 {
 
 /* ====== LISTAS ====== */
 ul, ol {
-  margin-left: 20px;
+  margin-left: 25px;
   margin-bottom: 15px;
+  padding-left: 10px;
 }
 
 ul li, ol li {
   margin-bottom: 8px;
   font-size: 1.05rem;
   transition: color 0.4s;
+}
+
+/* Mejor estilo para listas de ingredientes/preparación */
+ul li::marker {
+  color: #d35400;
+  font-weight: bold;
+}
+
+ol li::marker {
+  color: #27ae60;
+  font-weight: bold;
 }
 
 /* ====== BOTÓN VOLVER ARRIBA ====== */
@@ -160,6 +172,14 @@ ul li, ol li {
     color: #ddd;
   }
 
+  ul li::marker {
+    color: #f39c12;
+  }
+
+  ol li::marker {
+    color: #2ecc71;
+  }
+
   #btnTop {
     background: #2ecc71;
   }
@@ -189,6 +209,7 @@ ul li, ol li {
   from { opacity: 0; transform: translateX(20px); }
   to { opacity: 1; transform: translateX(0); }
 }
+
 
 
 
