@@ -12,8 +12,13 @@
     <p>Encuentra aquí las mejores recetas fáciles y rápidas</p>
   </header>
 
+  <!-- Barra de búsqueda -->
+  <section class="buscador">
+    <input type="text" id="search" placeholder="🔍 Buscar receta...">
+  </section>
+
   <main>
-    <section class="recetas">
+    <section class="recetas" id="recetas">
       <div class="receta">
         <img src="imagenes/receta1.jpg" alt="Receta 1">
         <h2>Spaghetti a la Boloñesa</h2>
@@ -59,7 +64,7 @@
   <button id="btnTop">⬆</button>
 
   <script>
-    // Mostrar/ocultar el botón según el scroll
+    // Botón volver arriba
     const btnTop = document.getElementById("btnTop");
 
     window.onscroll = function () {
@@ -70,13 +75,29 @@
       }
     };
 
-    // Función para volver arriba
     btnTop.onclick = function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    // Buscador de recetas
+    const searchInput = document.getElementById("search");
+    const recetas = document.querySelectorAll(".receta");
+
+    searchInput.addEventListener("keyup", function() {
+      let filtro = searchInput.value.toLowerCase();
+      recetas.forEach(receta => {
+        let titulo = receta.querySelector("h2").textContent.toLowerCase();
+        if (titulo.includes(filtro)) {
+          receta.style.display = "block";
+        } else {
+          receta.style.display = "none";
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
 
 
 
