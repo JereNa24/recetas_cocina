@@ -1,7 +1,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #f9f9f9;
+  background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
   color: #333;
   line-height: 1.6;
   padding-top: 100px; /* espacio para el header fijo */
@@ -12,7 +12,8 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: #ffffffcc; /* semi-transparente */
+  backdrop-filter: blur(5px);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   z-index: 1000;
   padding: 10px 20px;
@@ -34,10 +35,6 @@ nav ul {
   padding: 0;
 }
 
-nav ul li {
-  display: inline;
-}
-
 nav ul li a {
   text-decoration: none;
   color: #27ae60;
@@ -49,19 +46,28 @@ nav ul li a:hover {
   color: #d35400;
 }
 
+/* Tarjetas de receta */
 .receta {
   background: white;
-  border-radius: 10px;
+  border-radius: 15px;
   padding: 20px;
   margin: 20px auto;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
   max-width: 700px;
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+  border: 2px solid transparent;
+}
+
+.receta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+  border: 2px solid #27ae60;
 }
 
 .receta img {
   width: 100%;
   max-width: 600px;
-  border-radius: 10px;
+  border-radius: 12px;
   display: block;
   margin: 10px auto 20px auto;
 }
@@ -75,3 +81,4 @@ h3 {
   color: #555;
   margin-top: 15px;
 }
+
